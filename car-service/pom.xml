@@ -5,12 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <groupId>com.zy</groupId>
+        <artifactId>GD</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-  <groupId>com.zy</groupId>
   <artifactId>car-service</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -26,19 +25,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <optional>true</optional>
-      </dependency>
-
       <dependency>
           <groupId>mysql</groupId>
           <artifactId>mysql-connector-java</artifactId>
@@ -66,46 +52,11 @@
       </dependency>
 
       <dependency>
-          <groupId>com.alibaba.edas</groupId>
-          <artifactId>edas-sdk</artifactId>
-          <version>1.7.0</version>
-          <scope>provided</scope>
-      </dependency>
-
-      <dependency>
-          <groupId>com.alibaba</groupId>
-          <artifactId>hsf.schema</artifactId>
-          <version>edas1.0.0</version>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-          <exclusions>
-              <exclusion>
-                  <groupId>org.springframework.boot</groupId>
-                  <artifactId>spring-boot-starter-tomcat</artifactId>
-              </exclusion>
-          </exclusions>
-      </dependency>
-
-      <dependency>
           <groupId>org.mybatis.spring.boot</groupId>
           <artifactId>mybatis-spring-boot-starter</artifactId>
           <version>2.0.1</version>
       </dependency>
 
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-test</artifactId>
-          <scope>test</scope>
-      </dependency>
-
-      <dependency>
-          <groupId>tk.mybatis</groupId>
-          <artifactId>mapper</artifactId>
-          <version>3.3.9</version>
-      </dependency>
       <dependency>
           <groupId>com.zy</groupId>
           <artifactId>car-common</artifactId>

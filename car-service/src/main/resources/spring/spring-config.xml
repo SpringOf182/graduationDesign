@@ -55,6 +55,11 @@
     <import resource="classpath:hsf/provider/hsf-service.xml"></import>
 
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="Angel.mapper" />
+        <property name="basePackage" value="cn.com.bluemoon.bd.service.spider.dao"/>
+        <property name="properties">
+            <value>
+                mappers=tk.mybatis.mapper.common.Mapper
+            </value>
+        </property>
     </bean>
 </beans>

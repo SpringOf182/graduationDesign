@@ -4,10 +4,23 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.zy</groupId>
+  <parent>
+    <groupId>com.zy</groupId>
+    <artifactId>GD</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
   <artifactId>car-common</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.zy</groupId>
+            <artifactId>car-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <packaging>war</packaging>
 
   <name>car-common Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
@@ -18,15 +31,6 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
-
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
 
   <build>
     <finalName>car-common</finalName>

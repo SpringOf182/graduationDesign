@@ -1,9 +1,9 @@
 package com.zy.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zy.service.UserService;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +29,7 @@ public class LoginController {
     public JSONObject login(HttpServletRequest request) {
         String nickName = request.getParameter("nickName").trim();
         String image = request.getParameter("image").trim();
-
+        JSONObject jsonObject = userService.insertUser(nickName, image);
+        return jsonObject;
     }
 }

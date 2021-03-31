@@ -1,8 +1,6 @@
 package com.zy.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;

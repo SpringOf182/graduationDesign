@@ -14,18 +14,14 @@ public interface UserService {
      * @param uid 用户id
      * @return 查询到的用户完整信息
      */
-    public User queryUser(int uid);
+    public User queryUser(String uid);
     /**
-     * 用昵称查用户
-     * @param nickName 用户昵称
-     * @return 查询到的用户完整信息
-     */
-    public User queryUser(String nickName);
-    /**
-     * 用uid查用户
-     * @param nickName 用户昵称
-     * @param image 用户头像url
+     * 查询用户
+     * @param userQ 用户查询条件
      * @return 插入结果
      */
+    public User queryUser(User userQ);
     public JSONObject insertUser(String nickName,String image);
+    public Boolean alterIdentifier(String UID);
+    public Boolean queryIdentifier(String UID);
 }

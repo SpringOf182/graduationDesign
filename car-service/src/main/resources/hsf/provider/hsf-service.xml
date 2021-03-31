@@ -12,7 +12,25 @@
 
     <!--<bean id="userService" class="com.hsf.service.impl.UserServiceImpl"></bean>-->
     <hsf:provider id="userService"
-                  interface="com.hsf.common.service.UserService"
+                  interface="com.zy.service.UserService"
+                  version="1.0.0"
+                  group="test-group"
+                  ref="userService"
+                  clientTimeout="60000"/>
+    <hsf:provider id="processIdentifierService"
+                  interface="com.zy.service.ProcessIdentifierService"
+                  version="1.0.0"
+                  group="test-group"
+                  ref="userService"
+                  clientTimeout="60000"/>
+    <hsf:provider id="orderService"
+                  interface="com.zy.service.OrderService"
+                  version="1.0.0"
+                  group="test-group"
+                  ref="userService"
+                  clientTimeout="60000"/>
+    <hsf:provider id="messageService"
+                  interface="com.zy.service.MessageService"
                   version="1.0.0"
                   group="test-group"
                   ref="userService"

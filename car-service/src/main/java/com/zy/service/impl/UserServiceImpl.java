@@ -1,6 +1,7 @@
 package com.zy.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,48 +18,64 @@ import com.zy.entity.User;
 public class UserServiceImpl  implements UserService {
 
     @Autowired
-    private static ProcessUserServiceImpl qu;
-    private static ProcessIdentifierServiceImpl pi;
+    private ProcessIdentifierServiceImpl processIdentifierService;
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
-    public User queryUser(int arg) {
-        return qu.queryUser(arg);
+    public User queryUser(String UID) {
+        User userQ = new User();
+        userQ.setUid(UID);
+        User user = userMapper.selectOne(userQ);
+        return user;
     }
 
     @Override
-    public User queryUser(String arg) {
-        return qu.queryUser(arg);
+    public User queryUser(User userQ) {
+        User user = userMapper.selectOne(userQ);
+        return user;
     }
 
     @Override
     public JSONObject insertUser(String nickName,String image) {
         JSONObject jsonObject = new JSONObject();
+        User userQ = new User();
+        userQ.setNickName(nickName);
+        userQ.setImage(image);
         User user = new User();
-        if(qu.insertUser(nickName, image)){
+        if(!queryUser(userQ).equals(null)){
+            System.out.println("not null");
             jsonObject.put("Result", "success");
-            user = qu.queryUser(nickName);
             jsonObject.put("UID", user.getUid());
-        }else{
+            return jsonObject;
+        }
+        try{
+            userMapper.insert(userQ);
+            jsonObject.put("Result", "success");
+            jsonObject.put("UID", user.getUid());
+        }catch (Exception e){
             jsonObject.put("Result", "falied");
         }
         return jsonObject;
     }
 
-    public static Boolean alterIdentifier(int UID) {
-        if(qu.queryUser(UID).equals(null)) {
+    @Override
+    public Boolean alterIdentifier(String UID) {
+        if(queryUser(UID).equals(null)) {
             return false;
         }
-        if(pi.queryIdentifier(UID)) {
+        if(processIdentifierService.queryIdentifier(UID)) {
             return true;
         }
-        return pi.alterIdentifier(UID);
+        return processIdentifierService.alterIdentifier(UID);
     }
 
-    public static Boolean queryIdentifier(int UID){
-        if(qu.queryUser(UID).equals(null)) {
+    @Override
+    public Boolean queryIdentifier(String UID){
+        if(queryUser(UID).equals(null)) {
             return false;
         }
-        return pi.queryIdentifier(UID);
+        return processIdentifierService.queryIdentifier(UID);
     }
 
 }

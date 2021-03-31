@@ -19,7 +19,7 @@ public class User implements java.io.Serializable {
      */
     @Id
     @GeneratedValue(generator = "JDBC")
-    private java.lang.Integer uid;
+    private java.lang.String uid;
     /**
      * 用户昵称.
      */

@@ -1,4 +1,4 @@
-package com.zy.mapper;
+package mapper;
 
 import com.zy.entity.User;
 import tk.mybatis.mapper.common.BaseMapper;

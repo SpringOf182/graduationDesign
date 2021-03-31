@@ -1,7 +1,7 @@
 package com.zy.service.impl;
 
 import com.zy.entity.User;
-import com.zy.mapper.UserMapper;
+import mapper.UserMapper;
 import com.zy.service.ProcessIdentifierService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,7 +14,7 @@ public class ProcessIdentifierServiceImpl implements ProcessIdentifierService {
     UserMapper userMapper;
 
     @Override
-    public Boolean alterIdentifier(int UID) {
+    public Boolean alterIdentifier(String UID) {
         User userQ = new User();
         userQ.setUid(UID);
         userQ.setIdentifier(1);
@@ -25,7 +25,7 @@ public class ProcessIdentifierServiceImpl implements ProcessIdentifierService {
     }
 
     @Override
-    public Boolean queryIdentifier(int UID){
+    public Boolean queryIdentifier(String UID){
         User userQ = new User();
         userQ.setUid(UID);
         User user = userMapper.selectOne(userQ);

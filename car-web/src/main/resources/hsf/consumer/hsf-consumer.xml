@@ -12,7 +12,13 @@
 
 
 	<hsf:consumer clientTimeout="60000" version="1.0.0" group="test-group"
-				  interface="com.hsf.common.service.UserService" id="userService"/>
+				  interface="com.zy.service.UserService" id="userService"/>
+	<hsf:consumer clientTimeout="60000" version="1.0.0" group="test-group"
+				  interface="com.zy.service.ProcessIdentifierService" id="processIdentifierService"/>
+	<hsf:consumer clientTimeout="60000" version="1.0.0" group="test-group"
+				  interface="com.zy.service.OrderService" id="orderService"/>
+	<hsf:consumer clientTimeout="60000" version="1.0.0" group="test-group"
+				  interface="com.zy.service.MessageService" id="messageService"/>
 
 
 </beans>
